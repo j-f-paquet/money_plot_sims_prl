@@ -23,7 +23,8 @@ info_gain_zetas=np.loadtxt("info_gain_zetas.dat")
 num=len(T_zetas)
 
 #Map [0,1] to [0.5,1]
-colors = mpl.cm.Purples(info_gain_zetas/2.+0.5)
+alpha=0.4
+colors = mpl.cm.Purples(info_gain_zetas*(1-alpha)+alpha)
 
 axes[0].fill_between(T_zetas, prior_5pct_zetas,
                 prior_95pct_zetas,
@@ -45,7 +46,8 @@ posterior_95pct_etas=np.loadtxt("posterior_95pct_etas.dat")
 info_gain_etas=np.loadtxt("info_gain_etas.dat")
 
 #Map [0,1] to [0.5,1]
-colors = mpl.cm.Purples(info_gain_etas/2.+0.5)
+alpha=0.4
+colors = mpl.cm.Purples(info_gain_zetas*(1-alpha)+alpha)
 
 axes[1].fill_between(T_etas, prior_5pct_etas,
                 prior_95pct_etas,
