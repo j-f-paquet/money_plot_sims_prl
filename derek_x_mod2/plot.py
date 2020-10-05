@@ -184,6 +184,6 @@ fig.align_ylabels()
 
 plt.tight_layout(True)
 plt.subplots_adjust(wspace=0.3, hspace=0.0)
-plt.savefig("fig3.png", dpi=400)
-plt.savefig("fig3.pdf", dpi=400)
+plt.savefig("fig3.png", dpi=400,  bbox_inches = 'tight', pad_inches = 0)
+plt.savefig("fig3.pdf", bbox_inches = 'tight', pad_inches = 0)
 plt.show()
