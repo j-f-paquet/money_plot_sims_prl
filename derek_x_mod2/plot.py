@@ -1,6 +1,95 @@
 import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+from collections import OrderedDict
+
+
+
+
+### DEFAULTS FROM bayes_plot.py
+fontsize = dict(
+    large=11,
+    normal=10,
+    small=9,
+    tiny=8,
+)
+
+qm_font_large = 11
+qm_font_small = 9
+
+cb,co,cg,cr = plt.cm.Blues(.6), \
+    plt.cm.Oranges(.6), plt.cm.Greens(.6), plt.cm.Reds(.6)
+offblack = '#262626'
+gray = '0.8'
+
+# new tableau colors
+# https://www.tableau.com/about/blog/2016/7/colors-upgrade-tableau-10-56782
+colors = OrderedDict([
+    ('blue', '#4e79a7'),
+    ('orange', '#f28e2b'),
+    ('green', '#59a14f'),
+    ('red', '#e15759'),
+    ('cyan', '#76b7b2'),
+    ('purple', '#b07aa1'),
+    ('brown', '#9c755f'),
+    ('yellow', '#edc948'),
+    ('pink', '#ff9da7'),
+    ('gray', '#bab0ac')
+])
+
+offblack = '.15'
+
+plt.rcdefaults()
+plt.rcParams.update({
+    'font.family': 'sans-serif',
+    'font.sans-serif': ['Lato'],
+    'mathtext.fontset': 'custom',
+    'mathtext.default': 'it',
+    'mathtext.rm': 'sans',
+    'mathtext.it': 'sans:italic:medium',
+    'mathtext.cal': 'sans',
+    'font.size': fontsize['normal'],
+    'legend.fontsize': fontsize['normal'],
+    'axes.labelsize': fontsize['normal'],
+    'axes.titlesize': fontsize['large'],
+    'xtick.labelsize': fontsize['small'],
+    'ytick.labelsize': fontsize['small'],
+    #'font.weight': 400,
+    'axes.labelweight': 400,
+    'axes.titleweight': 400,
+    'axes.prop_cycle': plt.cycler('color', list(colors.values())),
+    'lines.linewidth': .8,
+    'lines.markersize': 3,
+    'lines.markeredgewidth': 0,
+    'patch.linewidth': .8,
+    'axes.linewidth': .6,
+    'xtick.major.width': .6,
+    'ytick.major.width': .6,
+    'xtick.minor.width': .4,
+    'ytick.minor.width': .4,
+    'xtick.major.size': 3.,
+    'ytick.major.size': 3.,
+    'xtick.minor.size': 2.,
+    'ytick.minor.size': 2.,
+    'xtick.major.pad': 3.5,
+    'ytick.major.pad': 3.5,
+    'axes.labelpad': 4.,
+    'axes.formatter.limits': (-5, 5),
+    #'axes.spines.top': False,
+    #'axes.spines.right': False,
+    'text.color': offblack,
+    'axes.edgecolor': offblack,
+    'axes.labelcolor': offblack,
+    'xtick.color': offblack,
+    'ytick.color': offblack,
+    'legend.frameon': False,
+    'image.cmap': 'Blues',
+    'image.interpolation': 'none',
+})
+
+
+
+
 
 
 # Colormaps: Purples? Or summer?
@@ -91,10 +180,10 @@ axes[1, 1].set_ylim([0., 1.4])
 T_ticks = [0.15, 0.2, 0.25, 0.3, 0.35]
 axes[1, 0].set_xticks(T_ticks)
 axes[1, 1].set_xticks(T_ticks)
+fig.align_ylabels()
 
 plt.tight_layout(True)
 plt.subplots_adjust(wspace=0.3, hspace=0.0)
-plt.savefig("fig3.png")
-plt.savefig("fig3.pdf")
+plt.savefig("fig3.png", dpi=400)
+plt.savefig("fig3.pdf", dpi=400)
 plt.show()
-
