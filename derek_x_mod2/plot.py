@@ -2,7 +2,8 @@ import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from collections import OrderedDict
-
+import matplotlib.image as mpimg
+from matplotlib.offsetbox import TextArea, DrawingArea, OffsetImage, AnnotationBbox
 
 
 
@@ -181,6 +182,17 @@ T_ticks = [0.15, 0.2, 0.25, 0.3, 0.35]
 axes[1, 0].set_xticks(T_ticks)
 axes[1, 1].set_xticks(T_ticks)
 fig.align_ylabels()
+
+
+#im = plt.imread("jetscape_logo.jpeg")
+#implot = plt.imshow(im)
+
+im = mpimg.imread('jetscape_logo.jpeg')
+imagebox = OffsetImage(im, zoom=0.08)
+ab = AnnotationBbox(imagebox, (0.32, 0.8),frameon=False)
+axes[1,0].add_artist(ab)
+plt.draw()
+
 
 plt.tight_layout(True)
 plt.subplots_adjust(wspace=0.3, hspace=0.0)
