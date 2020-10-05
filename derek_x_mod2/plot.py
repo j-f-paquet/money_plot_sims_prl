@@ -150,7 +150,7 @@ axes[1, 1].plot(T_etas, info_gain_etas, lw=4, color='black')
 #nbins=20
 #axes[1,1].hist(T_etas,bins=nbins,weights=info_gain_etas/(len(T_etas)/nbins), color='black')
 #axes[1, 1].set_ylabel(r'$KL(\eta/s(T))$')
-axes[1, 1].text(0.345, .4, "Prior"r"$\to$""Posterior\ninformation gain",horizontalalignment='right', fontsize=7)
+axes[1, 1].text(0.343, .55, "Prior"r"$\to$""Posterior\ninformation gain",horizontalalignment='right', fontsize=8)
 
 
 axes[0, 1].fill_between(T_etas, posterior_5pct_etas,
